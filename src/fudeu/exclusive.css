@@ -1,0 +1,80 @@
+@font-face {
+	font-family: 'commissioner';
+	src: url('Commissioner-VariableFont_wght.ttf') format('truetype');
+	font-style: normal;
+	font-display: block;
+}
+* {
+	color: black;
+	font-family: "commissioner";
+	font-weight: 400;
+}
+body {
+	margin: 0;
+}
+
+
+.header {
+	overflow: hidden;
+	background-color: #f2f2f2;
+	padding: 18px;
+	margin-bottom: 30px;
+}
+.pudimLogo {
+	margin: 0px 0px 0px 13px;
+	font-size: 140%;
+	text-decoration: none;
+}
+
+
+.contentContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.content {
+	width:60%;
+}
+.subContent {
+	background-color: #eeeeee;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 10px;
+	margin-bottom: 30px;
+}
+.paragraph {
+	margin-left: 30px;
+	font-size: 100%;
+}
+.title {
+	font-size: 280%;
+	text-align: center;
+}
+.subTitle {
+	margin-left: 30px;
+}
+.subsubTitle {
+	margin-left: 30px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	display:inline-block; 
+}
+.list {
+	margin-bottom: 0px;
+}
+.listItem {
+	margin-bottom: 5px;
+}
+
+
+@media screen and (max-width: 800px) {
+	.content {
+		width: 96%;
+	}
+}
+@media screen and (min-width: 1500px) {
+	.content {
+		width: 840px;
+	}
+}

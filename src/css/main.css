@@ -1,0 +1,199 @@
+@font-face {
+	font-family: 'commissioner';
+	src: url('Commissioner-VariableFont_wght.ttf') format('truetype');
+	font-style: normal;
+	font-display: block;
+}
+
+* {
+	color: black;
+	font-family: "commissioner";
+}
+
+html, body {
+	margin: 0px;
+	padding: 0px;
+}
+
+h1, h2, h3 {
+	font-weight: 400;
+}
+
+hr {
+	border: 0.5px solid #999;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+
+/* ####################### HEADER ####################### */
+
+.header {
+	background-color: #333;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.headerLink {
+	margin-left: 26px;
+	margin-right: 26px;
+	text-decoration: none;
+	
+	color: #f4f4f4
+}
+
+.pudimLogo {
+	font-size: 140%;
+	text-decoration: none;
+	font-weight: 450;
+
+	margin-left: 30px;
+	margin-right: 55px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+	color: #f4f4f4
+}
+
+
+/* ####################### PRODUCTS ####################### */
+
+.prod {
+	margin-top: 60px;
+
+	display: flex;
+}
+
+.descriptionContainer {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.photoContainer {
+	width: 32%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.pudim1 {
+	border-radius: 1.6%;
+	width: 100%;
+}
+
+.productTitle {
+	font-size: 280%;
+	font-weight: 400;
+
+	margin-bottom: 0;
+}
+
+.productSubTitle {
+	font-size: 150%;
+
+	margin-top: 9px;
+	margin-bottom: 0px;
+}
+
+.productDescription {
+	font-size: 100%;
+	
+	margin-top: 9px;
+	margin-bottom: 0px;
+}
+
+.preorder {
+	text-decoration: none;
+	color: #126dff;
+	font-weight: 400;
+
+	margin-top: 9px;
+	margin-bottom: 0px;
+	font-size: 130%;
+}
+
+/* ####################### COLOR ####################### */
+
+.dark {
+	background-color: #000;
+}
+
+.white {
+	background-color: #fff;
+}
+
+.whiteText {
+	color: #f4f4f4;
+}
+
+.greyText {
+	color: #727272;
+}
+
+/* ####################### IDs ####################### */
+
+#prod1 {
+	flex-direction: row;
+	justify-content: center;
+}
+
+#prod2 {
+	padding-top: 96px;
+	padding-bottom: 96px;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+#prod3 {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+#desc1 {
+	width: 16%;
+}
+
+#desc2 {
+	width: 30%;
+}
+
+#desc3 {
+	width: 25%;
+}
+
+#pContainer1 {
+	margin-left: 20%;
+}
+
+#pContainer2 {
+	margin-right: 15%;
+}
+
+/* ####################### FOOTER ####################### */
+
+
+.footer {
+	background-color: #f2f2f2;
+	padding: 25px 25px;
+	overflow-wrap: break-word;
+}
+
+.footerContent {
+	margin-left: 13px;
+	color:#999999;
+	font-size: 90%;
+}

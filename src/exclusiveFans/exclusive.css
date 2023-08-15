@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'commissioner';
+    src: url('Commissioner-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-display: block;
+}
+
+* {
+  box-sizing: border-box;
+  color: black;
+  font-family: "commissioner";
+}
+
+html,body {
+  height: 100%;
+  position: relative;
+}
+
+div {
+  word-wrap: break-word;
+}
+
+body {
+  margin: auto;
+  background-color: #fff;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2,h3 {
+  font-weight: 400;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1.6%;
+  width: 24%;
+}
+
+p {
+  font-size: 112%;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #f2f2f2;
+  padding: 18px;
+}
+
+.pudimLogo {
+  margin: 0px 0px 0px 13px;
+  font-size: 140%;
+  text-decoration: none;
+}
+
+.contents {
+  padding: 12px 2rem;
+  width:60%;
+}
+
+.hornyTitle {
+	text-align:center;
+	margin-bottom: 5px;
+}
+
+.footer {
+	background-color: #f9f9f9;
+	padding: 20px 10px;
+	width:100%;
+	height:60px;
+	overflow-wrap: break-word;
+}
+
+.footerContent {
+	margin: 0px;
+	margin-left: 13px;
+	margin-bottom: 20px;
+	color:#555;
+}
+
+#stocks {
+	width: 80%;
+}
+
+#chips {
+	width: 80%;
+}
+
+#food {
+	width: 80%;
+}
+
+@media screen and (max-width: 800px) {
+  .contents {
+    width: 96%;
+  }
+  #title {
+    width: 90%;
+  }
+}
+
+
+@media screen and (min-width: 1500px) {
+  .contents {
+    width: 840px;
+  }
+  #title {
+    width: 90%;
+  }
+}
