@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Find My!</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📍</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.min.css" integrity="sha512-oIQ0EBio8LJupRpgmDsIsvm0Fsr6c3XNHLB7at5xb+Cf6eQuCX9xuX8XXGRIcokNgdqL1ms7nqbQ6ryXMGxXpg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.min.js" integrity="sha512-TL+GX2RsOUlTndpkgHVnSQ9r6zldqHzfyECrdabkpucdFroZ3/HAhMmP2WYaPjsJCoot+0McmdPOLjmmicG9qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elliptic/6.5.4/elliptic.min.js" integrity="sha512-78ON1nQI4R5btOF/cPVb/msINn8P3K6yJ7n29r4J0M4SBLhTDmFqZgNQ7htZM16539xPvQDywpTdJaQPxuXxGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+	<div class="header">
+		<img src="hamb.png" onClick="hamburguerHandler()" alt="Hamburguer button!" id="hamb" style="filter: invert(100%);"/>
+		<a class="pudimLogo" href="/">P U D I M</a>
+		<a class="headerLink" href="/hosting">Web Hosting</a>
+		<a class="headerLink" href="/exclusiveFans">Exclusive Fans</a>
+		<a class="headerLink" href="/pudimCoin">Pudim Coin</a>
+		<a class="headerLink" href="/tor">Tor</a>
+		<a class="headerLink" href="/about">About</a>
+		<a class="headerLink" href="/workForUs">Work for us</a>
+	</div>
+
+    <div class="mobileHeader" style="display: none;">
+        <img src="hamb.png" onClick="hamburguerHandler()" alt="Hamburguer button!" id="hamb" style="filter: invert(100%);"/>
+    </div>
+
+	<div class="inputContainer" id="inputContainer">
+
+		<div class="keyLoaded" id="keyLoaded">
+			<p id="loadedMessage">Key {} already loaded!</p>
+			<button onClick="resetID()">Reset Key!</button>
+		</div>
+
+		<div class="textInput" id="textInput">
+			<input type="text" id="hashed_key" placeholder="Hashed key"></input>
+			<br/>
+			<input type="text" id="private_key" placeholder="Private key"></input>
+			<br/>
+			<input type="text" id="cookie" placeholder="Super secret cookie!"></input>
+		</div>
+
+		<p id="status" style="display:none;">Waiting for input</p>
+
+		<button class="btn" onclick="clickFetchHandler()">Fetch data!</button><span> </span>
+		<button class="btn" onclick="plotData()">Plot Data!</button>
+	</div>
+	<div id="map" style="width: 100%; height: 100%; position: fixed;"></div>
+</body>
+<script src="main.js"></script>
+</html>
+
