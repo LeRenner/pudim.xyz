@@ -154,6 +154,16 @@ form {
   margin-bottom: 50px;
 }
 
+#name {
+  font-size: 120%;
+}
+
+#mainText {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* for mobile devices */
 

@@ -19,8 +19,6 @@
 		<div class="box">
 			<div class="content">
 
-
-
 				<br class="spacerBig"/>
 
 				<div class="center">
@@ -35,13 +33,18 @@
 
 				<br class="spacerBig"/>
 
-				<div class="center">
-					<p id="text" style="font-size: 150%;">Want to send me a message? Send it here!</p>
+				<div class="center" id="mainText">
+					<p id="text" style="font-size: 150%; margin-bottom: 0px;">Want to send me a message? Send it here!</p>
+					<p id="text" style="font-size: 150%;">I swear it is anonymous ;)</p>
 				</div>
 
 				<br class="spacerBig"/>
 
 				<form>
+					<div class="center">
+						<input type="text" id="name" name="name" placeholder="Who is this? (Optional)">
+					</div>
+					<br />
 					<div class="grow-wrap">
 						<textarea name="text" id="text" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
 					</div>
