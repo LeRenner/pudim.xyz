@@ -33,6 +33,9 @@ let sendMail = () => {
 
 				statusElement.innerHTML = "Message sent!";
 
+				// store username in localStorage
+				localStorage.setItem("username", userIdentity);
+
 				// clear status after 5 seconds
 				setTimeout(() => {
 					statusElement.innerHTML = "⠀";
@@ -60,3 +63,62 @@ let sendMail = () => {
 		}, 3000);
 	}
 }
+
+// check if username is stored on localStorage
+if (localStorage.getItem("username") != null) {
+	// set username
+	document.getElementById("name").value = localStorage.getItem("username");
+}
+
+
+let expertModeEnabled = false;
+
+let expertMode = () => {
+	console.log("expertMode");
+
+	let expertModeElement = document.getElementById("expertMode");
+
+	if (expertModeElement.checked) {
+		expertModeEnabled = true;
+
+		// store decision on localStorage
+		localStorage.setItem("expertMode", "true");
+	} else {
+		expertModeEnabled = false;
+
+		// store decision on localStorage
+		localStorage.setItem("expertMode", "false");
+	}
+}
+
+// check if expertMode is enabled
+if (localStorage.getItem("expertMode") == "true") {
+	expertModeEnabled = true;
+
+	// check checkbox
+	document.getElementById("expertMode").checked = true;
+} else {
+	expertModeEnabled = false;
+
+	// uncheck checkbox
+	document.getElementById("expertMode").checked = false;
+}
+
+
+document.getElementsByClassName("grow-wrap")[0].children[0].addEventListener("keydown", (event) => {
+	if (expertModeEnabled) {
+		if (event.key == "Enter" && !event.ctrlKey) {
+			event.preventDefault();
+			sendMail();
+		}
+	}
+});
+
+// if user hits ctrl+enter, add newline
+document.getElementsByClassName("grow-wrap")[0].children[0].addEventListener("keydown", (event) => {
+	if (expertModeEnabled) {
+		if (event.key == "Enter" && event.ctrlKey) {
+			document.getElementsByClassName("grow-wrap")[0].children[0].value += "\n";
+		}
+	}
+});

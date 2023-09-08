@@ -164,6 +164,11 @@ form {
   align-items: center;
 }
 
+/* id description shouldnt be wider than 600 pixels */
+#description {
+  max-width: 600px;
+}
+
 
 /* for mobile devices */
 
