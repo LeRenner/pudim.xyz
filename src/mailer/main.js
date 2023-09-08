@@ -111,14 +111,14 @@ document.getElementsByClassName("grow-wrap")[0].children[0].addEventListener("ke
 			event.preventDefault();
 			sendMail();
 		}
-	}
-});
-
-// if user hits ctrl+enter, add newline
-document.getElementsByClassName("grow-wrap")[0].children[0].addEventListener("keydown", (event) => {
-	if (expertModeEnabled) {
 		if (event.key == "Enter" && event.ctrlKey) {
 			document.getElementsByClassName("grow-wrap")[0].children[0].value += "\n";
+		}
+	}
+	else {
+		if (event.key == "Enter" && event.ctrlKey) {
+			event.preventDefault();
+			sendMail();
 		}
 	}
 });
