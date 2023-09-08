@@ -1,0 +1,62 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="other.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pudim Mailer!</title>
+    </head>
+    <body>
+		<div class="header">
+			<a class="pudimLogo" href="/">P U D I M</a>
+			<a class="headerLink" href="/hosting">Web Hosting</a>
+			<a class="headerLink" href="/exclusiveFans">Exclusive Fans</a>
+			<a class="headerLink" href="/pudimCoin">Pudim Coin</a>
+			<a class="headerLink" href="/tor">Tor</a>
+			<a class="headerLink" href="/about">About</a>
+			<a class="headerLink" href="/workForUs">Work for us</a>
+		</div>
+
+		<div class="box">
+			<div class="content">
+
+
+
+				<br class="spacerBig"/>
+
+				<div class="center">
+					<h2 id="title" style="font-size: 240%;">Pudim Mailer!</h2>
+				</div>
+
+				<br class="spacerBig"/>
+
+				<div class="center">
+					<img src="pudim.jpg" alt="Pudim!" style="margin:0px;">
+				</div>
+
+				<br class="spacerBig"/>
+
+				<div class="center">
+					<p id="text" style="font-size: 150%;">Want to send me a message? Send it here!</p>
+				</div>
+
+				<br class="spacerBig"/>
+
+				<form>
+					<div class="grow-wrap">
+						<textarea name="text" id="text" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+					</div>
+				</form>
+
+				<p class="status">⠀</p>
+				<br />
+
+				<button class="button" onclick="sendMail()">Send!</button>
+
+
+			</div>
+		</div>
+
+		<br class="pageEnd" />
+    </body>
+	<script src="main.js"></script>
+</html>

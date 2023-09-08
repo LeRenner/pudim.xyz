@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'commissioner';
+    src: url('Commissioner-VariableFont_wght.ttf') format('truetype');
+    font-style: normal;
+    font-display: block;
+}
+
+* {
+  box-sizing: border-box;
+  color: black;
+  font-family: "commissioner";
+}
+
+div {
+  word-wrap: break-word;
+}
+
+body {
+  margin: auto;
+  background-color: #fff;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+h2,h3 {
+  font-weight: 400;
+}
+
+img {
+  display: block;
+  margin-left: 0;
+  margin-right: 40px;
+  border-radius: 3px;
+  width: 36%;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+
+.spacerBig {
+  margin-bottom: 30px;
+}
+
+.header {
+	background-color: #333;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.headerLink {
+	margin-left: 26px;
+	margin-right: 26px;
+	text-decoration: none;
+	
+	color: #f4f4f4
+}
+
+.pudimLogo {
+	font-size: 140%;
+	text-decoration: none;
+	font-weight: 450;
+
+	margin-left: 30px;
+	margin-right: 55px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+	color: #f4f4f4
+}
+
+.button {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; /* Green */
+  font-size: 30px;
+  border-radius: 4px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.button:hover {
+  background-color: #eee;
+}
+
+.button:active {
+  background-color: #bbb;
+}
+
+.grow-wrap {
+  /* easy way to plop the elements on top of each other and have them both sized based on the tallest one's height */
+  display: grid;
+}
+.grow-wrap::after {
+  /* Note the weird space! Needed to preventy jumpy behavior */
+  content: attr(data-replicated-value) " ";
+
+  /* This is how textarea text behaves */
+  white-space: pre-wrap;
+
+  /* Hidden from view, clicks, and screen readers */
+  visibility: hidden;
+}
+.grow-wrap > textarea {
+  /* You could leave this, but after a user resizes, then it ruins the auto sizing */
+  resize: none;
+
+  /* Firefox shows scrollbar on growth, you can hide like this. */
+  overflow: hidden;
+}
+.grow-wrap > textarea,
+.grow-wrap::after {
+  /* Identical styling required!! */
+  border: 1px solid black;
+  padding: 0.5rem;
+  font: inherit;
+
+  /* Place on top of each other */
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+label {
+  display: block;
+}
+
+form {
+  width: 50%;
+}
+
+.pageEnd {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+/* for mobile devices */
+
+@media only screen and (max-width: 600px) {
+  img {
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .content {
+    width: 72%;
+  }
+  .button {
+    font-size: 30px;
+  }
+  .grow-wrap {
+    width: 100%;
+  }
+  form {
+    width: 100%;
+  }
+  /* make link float to left part of the div */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pudimLogo {
+    margin-left: 30px;
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .headerLink {
+    display: none;
+  }
+}
