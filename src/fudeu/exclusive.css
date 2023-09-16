@@ -67,6 +67,11 @@ body {
 	margin-bottom: 5px;
 }
 
+/* increase spacing between items in lists */
+li {
+  padding-top: 10px;
+  margin: 0;
+}
 
 @media screen and (max-width: 800px) {
 	.content {
