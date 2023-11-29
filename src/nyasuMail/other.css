@@ -33,7 +33,7 @@ img {
   margin-left: 0;
   margin-right: 40px;
   border-radius: 3px;
-  width: 36%;
+  width: 18%;
 }
 
 input {
@@ -187,7 +187,6 @@ form {
 #pfp {
   margin: 0;
   border-radius: 50%;
-  width: 18%;
   animation: rotate 4s linear infinite; /* Rotate every 2 seconds */
 }
 
@@ -234,6 +233,6 @@ body {
     display: none;
   }
   #pfp {
-    width: 30%;
+    width: 48%;
   }
 }
