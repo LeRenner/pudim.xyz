@@ -37,7 +37,13 @@ img {
 }
 
 input {
-  color:#999;
+  color:#000;
+  border: 3px solid white;
+  border-radius: 3px;
+}
+
+input::placeholder {
+  color: #888;
 }
 
 .box {
@@ -78,7 +84,7 @@ input {
 	margin-right: 26px;
 	text-decoration: none;
 	
-	color: #f4f4f4
+	color: #FFFFFF
 }
 
 .pudimLogo {
@@ -97,7 +103,7 @@ input {
 .button {
   background-color: white;
   color: black;
-  border: 2px solid #4CAF50; /* Green */
+  border: 2px solid #FFFFFF; /* Green */
   font-size: 30px;
   border-radius: 4px;
   margin-left: 20px;
@@ -131,7 +137,7 @@ input {
   visibility: hidden;
 }
 .grow-wrap > textarea {
-  color: #999;
+  color: #000;
   /* You could leave this, but after a user resizes, then it ruins the auto sizing */
   resize: none;
 
@@ -140,14 +146,19 @@ input {
 }
 .grow-wrap > textarea,
 .grow-wrap::after {
-  color: #999;
+  color: #000;
   /* Identical styling required!! */
-  border: 1px solid black;
+  border: 3px solid white;
+  border-radius: 3px;
   padding: 0.5rem;
   font: inherit;
 
   /* Place on top of each other */
   grid-area: 1 / 1 / 2 / 2;
+}
+
+.grow-wrap > textarea::placeholder {
+  color: #888;
 }
 
 label {
