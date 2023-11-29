@@ -233,4 +233,7 @@ body {
   .headerLink {
     display: none;
   }
+  #pfp {
+    width: 30%;
+  }
 }
