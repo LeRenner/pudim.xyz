@@ -34,14 +34,56 @@
 					</p>
 					<br/>
 					<div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-						<audio id="audio" src="https://radio.pudim.xyz/congonhas.mp3" controls></audio>
+						<audio id="audio" src="https://radio.pudim.xyz/congonhas.mp3" controls crossorigin="anonymous"></audio>
 					</div>
-				</div>
+				</div>			  
+				<script>
+					const audioElement = document.getElementById('audio');
+					audioElement.volume = 0.6;
+					const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+					const source = audioContext.createMediaElementSource(audioElement);
 
+					const compressor = audioContext.createDynamicsCompressor();
+					compressor.threshold.value = -50;
+					compressor.knee.value = 40;
+					compressor.ratio.value = 12;
+					compressor.attack.value = 0;
+					compressor.release.value = 0.25;
+
+					const lowFilter = audioContext.createBiquadFilter();
+					lowFilter.type = 'lowpass';
+					lowFilter.frequency.value = 2000;
+					lowFilter.Q.value = Math.sqrt(0.4); // Q value for linear transition
+
+					const highFilter = audioContext.createBiquadFilter();
+					highFilter.type = 'highpass';
+					highFilter.frequency.value = 300;
+					highFilter.Q.value = Math.sqrt(0.4); // Q value for linear transition
+
+					const gainNode = audioContext.createGain();
+					gainNode.gain.value = 1;
+
+					source.connect(lowFilter);
+					lowFilter.connect(highFilter);
+					highFilter.connect(compressor);
+					compressor.connect(gainNode);
+					gainNode.connect(audioContext.destination);
+
+					// Automatically resume AudioContext on user interaction
+					document.addEventListener('click', () => {
+						if (audioContext.state === 'suspended') {
+							audioContext.resume();
+						}
+					});
+					document.addEventListener('touchstart', () => {
+						if (audioContext.state === 'suspended') {
+							audioContext.resume();
+						}
+					});
+				</script>
+				</div>
 			</div>
 		</div>
-
 		<br class="pageEnd" />
     </body>
-	<script src="main.js"></script>
 </html>
