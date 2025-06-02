@@ -48,6 +48,7 @@
       align-items: end;
     }
     @media (max-width: 600px) {
+      .est-container { width: auto; }
       .est-form-grid { grid-template-columns: 1fr; }
     }
     .est-field {
@@ -1086,26 +1087,28 @@
             </button>
             <div class="accordion-content overflow-hidden transition-all duration-300">
               <div class="mb-4" style="color: #cbd5e1;">Visão dos seus erros e acertos, com separação por matéria</div>
-              <table class="w-full text-sm" style="border-collapse: collapse; border: 1px solid #444851;">
-                <thead>
-                  <tr style="border-bottom: 1px solid #444851;">
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600;" data-sort="emojiText">Matéria<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 158px;" data-sort="number">Taxa de acerto<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="number">Acertos<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="number">Erros<span class="sort-chevron"></span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${Object.values(result.subjectsData).map((d) => {
-                    return `<tr style="border-bottom: 1px solid #444851;">
-                      <td class="p-1" style="border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6;">${d.subjectLabel}</td>
-                      <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 158px;">${d.correctPercentage.toFixed(2)}%</td>
-                      <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${d.noOfCorrectAnswers} de ${d.noOfTotalAnswers}</td>
-                      <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${d.noOfTotalAnswers - d.noOfCorrectAnswers} de ${d.noOfTotalAnswers}</td>
-                    </tr>`;
-                  }).join('')}
-                </tbody>
-              </table>
+              <div style="overflow-x: auto;">
+                <table class="w-full text-sm" style="border-collapse: collapse; border: 1px solid #444851; min-width: 600px;">
+                  <thead>
+                    <tr style="border-bottom: 1px solid #444851;">
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600;" data-sort="emojiText">Matéria<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 158px;" data-sort="number">Taxa de acerto<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="number">Acertos<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="number">Erros<span class="sort-chevron"></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${Object.values(result.subjectsData).map((d) => {
+                      return `<tr style="border-bottom: 1px solid #444851;">
+                        <td class="p-1" style="border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6;">${d.subjectLabel}</td>
+                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 158px;">${d.correctPercentage.toFixed(2)}%</td>
+                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${d.noOfCorrectAnswers} de ${d.noOfTotalAnswers}</td>
+                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${d.noOfTotalAnswers - d.noOfCorrectAnswers} de ${d.noOfTotalAnswers}</td>
+                      </tr>`;
+                    }).join('')}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 
@@ -1116,29 +1119,31 @@
             </button>
             <div class="accordion-content overflow-hidden transition-all duration-300">
               <div class="mb-4" style="color: #cbd5e1;">Lista das questões em que houve erro na resposta, com a resolução correspondente</div>
-              <table class="w-full text-sm" style="border-collapse: collapse; border: 1px solid #444851;">
-                <thead>
-                  <tr style="border-bottom: 1px solid #444851;">
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 90px;" data-sort="number">Nº da questão<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 90px;" data-sort="emojiText">Resposta dada<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 90px;" data-sort="emojiText">Resposta correta<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 158px;" data-sort="emojiText">Matéria<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600;" data-sort="none">Resolução da questão<span class="sort-chevron"></span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${Object.values(result.wrongAnswers).map((a) => {
-                    return `<tr style="border-bottom: 1px solid #444851;">
-                      <td class="p-1" style="border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; width: 86px;">${a.questionNumber}</td>
-                      <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 90px;">${a.answerGiven}</td>
-                      <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 90px;">${a.correctAnswer}</td>
-                      <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 158px;">${a.subjectLabel}</td>
-                      <td class="p-1 hidden" style="border-right: 1px solid #444851; color:#f3f4f6;"><button class="link-btn mb-1" onclick="this.parentElement.nextElementSibling.classList.remove('hidden'); this.parentElement.classList.add('hidden')">Esconder resolução</button><a href="${a.resolutionUrl}" target="_blank"><img src="${a.resolutionUrl}" /></a></td>
-                      <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6;"><button class="link-btn" onclick="this.parentElement.previousElementSibling.classList.remove('hidden'); this.parentElement.classList.add('hidden')">Ver resolução</button></td>
-                    </tr>`;
-                  }).join('')}
-                </tbody>
-              </table>
+              <div style="overflow-x: auto;">
+                <table class="w-full text-sm" style="border-collapse: collapse; border: 1px solid #444851; min-width: 600px;">
+                  <thead>
+                    <tr style="border-bottom: 1px solid #444851;">
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 90px;" data-sort="number">Nº da questão<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 90px;" data-sort="emojiText">Resposta dada<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 90px;" data-sort="emojiText">Resposta correta<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 158px;" data-sort="emojiText">Matéria<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600;" data-sort="none">Resolução da questão<span class="sort-chevron"></span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${Object.values(result.wrongAnswers).map((a) => {
+                      return `<tr style="border-bottom: 1px solid #444851;">
+                        <td class="p-1" style="border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; width: 86px;">${a.questionNumber}</td>
+                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 90px;">${a.answerGiven}</td>
+                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 90px;">${a.correctAnswer}</td>
+                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 158px;">${a.subjectLabel}</td>
+                        <td class="p-1 hidden" style="border-right: 1px solid #444851; color:#f3f4f6;"><button class="link-btn mb-1" onclick="this.parentElement.nextElementSibling.classList.remove('hidden'); this.parentElement.classList.add('hidden')">Esconder resolução</button><a href="${a.resolutionUrl}" target="_blank"><img src="${a.resolutionUrl}" /></a></td>
+                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6;"><button class="link-btn" onclick="this.parentElement.previousElementSibling.classList.remove('hidden'); this.parentElement.classList.add('hidden')">Ver resolução</button></td>
+                      </tr>`;
+                    }).join('')}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 
@@ -1152,22 +1157,24 @@
               ${Object.entries(result.wrongAnswersByPriority).map(([priority, {meanEstimatedTime, totalEstimatedTime, topics}]) => `
                 <h2 class="text-lg font-semibold mb-2" style="color:#fff">${priority}</h2>
                 <div class="mt-1 mb-1" style="color: #cbd5e1;">${topics.length} tópico${topics.length > 1 ? 's' : ''} sugeridos, tempo médio ~${meanEstimatedTime} por tópico (${totalEstimatedTime})</div>
-                <table class="w-full mb-8" style="border-collapse: collapse; border: 1px solid #444851;">
-                  <thead><tr style="border-bottom: 1px solid #444851;">
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600;" data-sort="emojiText">Tópico<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="time">Tempo estimado<span class="sort-chevron"></span></th>
-                    <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="emojiText">Matéria<span class="sort-chevron"></span></th>
-                  </tr></thead>
-                  <tbody>
-                    ${topics.map(t => `
-                      <tr style="border-bottom: 1px solid #444851;">
-                        <td class="p-1" style="border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6;">${t.topic}</td>
-                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${t.estimatedTime}</td>
-                        <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${result.subjectsData[t.subject].subjectLabel}</td>
-                      </tr>
-                    `).join('')}
-                  </tbody>
-                </table>
+                <div style="overflow-x: auto;">
+                  <table class="w-full mb-8" style="border-collapse: collapse; border: 1px solid #444851; min-width: 600px;">
+                    <thead><tr style="border-bottom: 1px solid #444851;">
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600;" data-sort="emojiText">Tópico<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="time">Tempo estimado<span class="sort-chevron"></span></th>
+                      <th class="p-1 text-left sortable" style="border-bottom: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6; font-weight:600; width: 129.5px;" data-sort="emojiText">Matéria<span class="sort-chevron"></span></th>
+                    </tr></thead>
+                    <tbody>
+                      ${topics.map(t => `
+                        <tr style="border-bottom: 1px solid #444851;">
+                          <td class="p-1" style="border-left: 1px solid #444851; border-right: 1px solid #444851; color:#f3f4f6;">${t.topic}</td>
+                          <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${t.estimatedTime}</td>
+                          <td class="p-1" style="border-right: 1px solid #444851; color:#f3f4f6; width: 129.5px;">${result.subjectsData[t.subject].subjectLabel}</td>
+                        </tr>
+                      `).join('')}
+                    </tbody>
+                  </table>
+                </div>
               `).join('')}
             </div>
           </div>
