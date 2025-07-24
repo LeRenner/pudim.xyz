@@ -39,6 +39,22 @@
 					const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 					const source = audioContext.createMediaElementSource(audioElement);
 
+
+					const waveShaper = audioContext.createWaveShaper();
+					waveShaper.curve = makeSoftClipCurve(4096);
+					waveShaper.oversample = '4x';
+
+					function makeSoftClipCurve(samples) {
+						const curve = new Float32Array(samples);
+						for (let i = 0; i < samples; ++i) {
+							const x = (i * 2) / samples - 1;
+							curve[i] = x < -0.2 ? (x + 0.2) / 2 :
+									x > 0.2 ? (x - 0.2) / 2 :
+									x;
+						}
+						return curve;
+					}
+
 					const compressor = audioContext.createDynamicsCompressor();
 					compressor.threshold.value = -50;
 					compressor.knee.value = 40;
@@ -62,6 +78,7 @@
 					source.connect(lowFilter);
 					lowFilter.connect(highFilter);
 					highFilter.connect(compressor);
+					compressor.connect(waveShaper); // ← NEW
 					compressor.connect(gainNode);
 					gainNode.connect(audioContext.destination);
 
