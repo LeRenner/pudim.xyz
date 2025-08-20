@@ -13,16 +13,8 @@ WORKDIR /var/www/html
 # Copy the website source code to the container
 COPY ./src/ .
 
-# Create and run metadata stripping script
-RUN echo '#!/bin/bash\n\
-# Find common picture formats and strip all metadata\n\
-find . -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.tiff" -o -iname "*.heic" \) | while read -r file; do\n\
-    echo "Stripping metadata from: $file"\n\
-    exiftool -overwrite_original -all= "$file"\n\
-done' > /tmp/strip_metadata.sh && \
-    chmod +x /tmp/strip_metadata.sh && \
-    /tmp/strip_metadata.sh && \
-    rm /tmp/strip_metadata.sh
+# Strip metadata from all image files
+RUN find . -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.tiff" -o -iname "*.heic" \) -exec sh -c 'echo "Stripping metadata from: $1"; exiftool -overwrite_original -all= "$1"' _ {} \;
 
 # Expose the port that Caddy will listen on
 EXPOSE 80
