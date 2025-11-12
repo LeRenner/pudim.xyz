@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    color: #2d3748;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.subtitle {
+    color: #718096;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.input-section {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    color: #4a5568;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency {
+    position: absolute;
+    left: 16px;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+#valorNota {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    transition: all 0.3s ease;
+}
+
+#valorNota:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#valorNota::placeholder {
+    color: #cbd5e0;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tax-item {
+    background: #f7fafc;
+    border-radius: 12px;
+    padding: 16px 20px;
+    transition: all 0.3s ease;
+}
+
+.tax-item:hover {
+    background: #edf2f7;
+    transform: translateX(4px);
+}
+
+.tax-item.total {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-top: 8px;
+}
+
+.tax-item.total:hover {
+    transform: translateX(4px) scale(1.02);
+}
+
+.tax-item.net-value {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+}
+
+.tax-item.net-value:hover {
+    transform: translateX(4px) scale(1.02);
+}
+
+.tax-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.tax-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.tax-item.total .tax-name,
+.tax-item.total .tax-percentage,
+.tax-item.net-value .tax-name {
+    color: white;
+}
+
+.tax-percentage {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.tax-item.total .tax-percentage {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.tax-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+.tax-item.total .tax-value,
+.tax-item.net-value .tax-value {
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 24px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #valorNota {
+        font-size: 1.2rem;
+        padding: 14px 14px 14px 44px;
+    }
+
+    .tax-value {
+        font-size: 1.2rem;
+    }
+}

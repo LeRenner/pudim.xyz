@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Impostos - Nota Fiscal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Impostos</h1>
+        <p class="subtitle">Calcule os impostos baseados no valor da Nota Fiscal</p>
+        
+        <div class="input-section">
+            <label for="valorNota">Valor da Nota Fiscal</label>
+            <div class="input-wrapper">
+                <span class="currency">R$</span>
+                <input type="text" id="valorNota" placeholder="0,00" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="results">
+            <div class="tax-item">
+                <div class="tax-header">
+                    <span class="tax-name">COFINS</span>
+                    <span class="tax-percentage">3%</span>
+                </div>
+                <div class="tax-value" id="cofins">R$ 0,00</div>
+            </div>
+
+            <div class="tax-item">
+                <div class="tax-header">
+                    <span class="tax-name">CSLL</span>
+                    <span class="tax-percentage">1%</span>
+                </div>
+                <div class="tax-value" id="csll">R$ 0,00</div>
+            </div>
+
+            <div class="tax-item">
+                <div class="tax-header">
+                    <span class="tax-name">IRRF</span>
+                    <span class="tax-percentage">1,5%</span>
+                </div>
+                <div class="tax-value" id="irrf">R$ 0,00</div>
+            </div>
+
+            <div class="tax-item">
+                <div class="tax-header">
+                    <span class="tax-name">PIS</span>
+                    <span class="tax-percentage">0,65%</span>
+                </div>
+                <div class="tax-value" id="pis">R$ 0,00</div>
+            </div>
+
+            <div class="tax-item total">
+                <div class="tax-header">
+                    <span class="tax-name">Total de Impostos</span>
+                    <span class="tax-percentage">6,15%</span>
+                </div>
+                <div class="tax-value" id="total">R$ 0,00</div>
+            </div>
+
+            <div class="tax-item net-value">
+                <div class="tax-header">
+                    <span class="tax-name">Valor Líquido</span>
+                </div>
+                <div class="tax-value" id="liquido">R$ 0,00</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
