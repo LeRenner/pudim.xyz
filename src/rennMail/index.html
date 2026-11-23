@@ -1,72 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="other.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@NotRenner">
-		<meta name="twitter:title" content="Renn Mailer!">
-		<meta name="twitter:description" content="Want to send me an anonymous message? Send it Here!">
-		<meta name="twitter:image" content="https://pudim.xyz/rennMail/nysu.jpg">
-        <title>Renn Mailer!</title>
-    </head>
-    <body>
-		<div class="box">
-			<div class="content">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffd74d">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NotRenner">
+    <meta name="twitter:title" content="Renn Mailer!">
+    <meta name="twitter:description" content="Want to send me an anonymous message? Send it Here!">
+    <meta name="twitter:image" content="https://pudim.xyz/rennMail/nysu.jpg">
+    <title>Renn Mailer!</title>
+    <link rel="stylesheet" href="../rennerMail/other.css">
+    <link rel="stylesheet" href="other.css">
+    <script src="../rennerMail/main.js" defer></script>
+</head>
 
-				<br class="spacerBig"/>
+<body>
+    <main class="page">
+        <section class="mailer" aria-labelledby="title">
+            <div class="profile">
+                <img src="nysu.jpg" alt="Renn!" id="pfp" width="114" height="114">
+            </div>
 
-				<div class="center">
-					<h2 id="title" style="font-size: 240%;">Hey hey hey hey</h2>
-				</div>
+            <header class="intro">
+                <h1 id="title">Hey hey hey hey</h1>
+                <p>Want to send me a message? Send it here!</p>
+                <p class="privacy-note">I swear it is anonymous ;)</p>
+            </header>
 
-				<br class="spacerBig"/>
+            <form id="messageForm">
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    aria-label="Your name (optional)"
+                    placeholder="Who is this? (Optional)"
+                    maxlength="50"
+                    autocomplete="nickname"
+                >
 
-				<div class="center">
-					<img src="nysu.jpg" alt="Renn!" id="pfp" style="margin:0px; border-radius: 50%;">
-				</div>
+                <div class="grow-wrap">
+                    <textarea
+                        name="text"
+                        id="message"
+                        aria-label="Your message"
+                        placeholder="What do you want to say?"
+                        rows="4"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+                </div>
 
-				<br class="spacerBig"/>
+                <button class="button" id="sendButton" type="submit">
+                    <span id="buttonText">Send!</span>
+                </button>
 
-				<div class="center" id="mainText">
-					<p id="text" style="font-size: 150%; margin-bottom: 0px;">Want to send me a message? Send it here!</p>
-					<p id="text" style="font-size: 150%;">I swear it is anonymous ;)</p>
-				</div>
+                <p class="status" id="status" role="status" aria-atomic="true"></p>
+            </form>
 
-				<br class="spacerBig"/>
-
-				<form>
-					<div class="center">
-						<input type="text" id="name" name="name" placeholder="Who is this? (Optional)">
-					</div>
-					<br />
-					<div class="grow-wrap">
-						<textarea name="text" id="text" onInput="this.parentNode.dataset.replicatedValue = this.value" placeholder="What do you want to say?"></textarea>
-					</div>
-				</form>
-
-				<p class="status">⠀</p>
-				<br />
-
-				<button class="button" onclick="sendMail()">Send!</button>
-
-				<br class="spacerBig"/>
-				<br class="spacerBig"/>
-
-				<p style="font-size: 140%; display:none">----------------------------------------------------------</p>
-
-				<div class="center" style="display: none;">
-					<input type="checkbox" id="expertMode" name="expertMode" value="expertMode" onclick="expertMode()">
-					<label for="expertMode">Expert Mode</label>
-				</div>
-
-				<p style="font-size: 106%; display: none;" id="description">In expert mode, you use ctrl+enter to create a new line, and enter to send the message! If you are MaxCG, you will probably like this!</p>
-
-			</div>
-		</div>
-
-		<br class="pageEnd" />
-    </body>
-	<script src="main.js"></script>
+            <div hidden>
+                <label for="expertMode">
+                    <input type="checkbox" id="expertMode" name="expertMode">
+                    Expert Mode
+                </label>
+                <p id="shortcutDescription"></p>
+            </div>
+        </section>
+    </main>
+</body>
 </html>

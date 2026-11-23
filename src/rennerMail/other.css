@@ -1,237 +1,307 @@
 @font-face {
-    font-family: 'commissioner';
-    src: url('Commissioner-VariableFont_wght.ttf') format('truetype');
+    font-family: "Cascadia Code PL";
+    src: url("CascadiaCodePL.woff2") format("woff2");
     font-style: normal;
-    font-display: block;
+    font-weight: 200 700;
+    font-display: swap;
 }
 
-* {
-  box-sizing: border-box;
-  color: #FFFFFF;
-  font-family: "commissioner";
+:root {
+    color-scheme: dark;
+    --surface: #232323;
+    --field: #1b1b1b;
+    --border: #515151;
+    --text: #eeeeee;
+    --muted: #b4b4b4;
+    --focus: #dddddd;
+    --radius: 6px;
 }
 
-div {
-  word-wrap: break-word;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
-  margin: auto;
-  background-color: #fff;
+    margin: 0;
+    background-color: #121414;
+    background-image:
+        linear-gradient(#ffffff08 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff08 1px, transparent 1px),
+        linear-gradient(#ffffff0a 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
+
+    background-size:
+        20px 20px,
+        20px 20px,
+        100px 100px,
+        100px 100px;
+    color: var(--text);
+    font: 1rem / 1.55 "Cascadia Code PL", ui-monospace, monospace;
 }
 
-h1 {
-  font-weight: 300;
+button,
+input,
+textarea {
+    font: inherit;
 }
 
-h2,h3 {
-  font-weight: 400;
+.page {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 32px 16px;
 }
 
-img {
-  display: block;
-  margin-left: 0;
-  margin-right: 40px;
-  border-radius: 3px;
-  width: 18%;
+.mailer {
+    width: min(100%, 550px);
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid #3e3e3e;
+    border-radius: 10px;
 }
 
-input {
-  color:#000;
-  border: 3px solid white;
-  border-radius: 3px;
+.profile {
+    margin-bottom: 16px;
 }
 
-input::placeholder {
-  color: #888;
+#pfp {
+    display: block;
+    width: 114px;
+    height: 114px;
+    margin-inline: auto;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 50%;
 }
 
-.box {
-  display: flex;
-  justify-content: center;
+.intro {
+    margin-bottom: 24px;
+    text-align: center;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  justify-content: center;
-  align-items: center;
+.intro h1 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-wrap: balance;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  width: 100%
+.privacy-note {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 0.875rem;
 }
 
-.spacerBig {
-  margin-bottom: 30px;
+#messageForm,
+.field {
+    display: grid;
 }
 
-.header {
-	padding-top: 18px;
-	padding-bottom: 18px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+#messageForm {
+    gap: 16px;
 }
 
-.headerLink {
-	margin-left: 26px;
-	margin-right: 26px;
-	text-decoration: none;
-	
-	color: #FFFFFF
+.field {
+    gap: 6px;
 }
 
-.pudimLogo {
-	font-size: 140%;
-	text-decoration: none;
-	font-weight: 450;
-
-	margin-left: 30px;
-	margin-right: 55px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-
-	color: #f4f4f4
+.field > label {
+    font-size: 0.875rem;
+    font-weight: 600;
 }
 
-.button {
-  background-color: white;
-  color: black;
-  border: 2px solid #FFFFFF; /* Green */
-  font-size: 30px;
-  border-radius: 4px;
-  margin-left: 20px;
-  margin-right: 20px;
+.optional {
+    color: var(--muted);
+    font-weight: 400;
 }
 
-.button:hover {
-  background-color: #eee;
+input[type="text"],
+textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    color: var(--text);
+    background: var(--field);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
 }
 
-.button:active {
-  background-color: #bbb;
+input[type="text"] {
+    min-height: 44px;
+}
+
+input[type="text"]::placeholder,
+textarea::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+.button:focus-visible,
+.settings summary:focus-visible,
+.toggle input:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
 }
 
 .grow-wrap {
-  color: #444;
-  /* easy way to plop the elements on top of each other and have them both sized based on the tallest one's height */
-  display: grid;
-
-  font-size: 110%;
+    display: grid;
+    min-width: 0;
 }
-.grow-wrap::after {
-  color:#BBB;
-  /* Note the weird space! Needed to preventy jumpy behavior */
-  content: attr(data-replicated-value) " ";
 
-  /* This is how textarea text behaves */
-  white-space: pre-wrap;
-
-  /* Hidden from view, clicks, and screen readers */
-  visibility: hidden;
-}
+.grow-wrap::after,
 .grow-wrap > textarea {
-  color: #000;
-  /* You could leave this, but after a user resizes, then it ruins the auto sizing */
-  resize: none;
-
-  /* Firefox shows scrollbar on growth, you can hide like this. */
-  overflow: hidden;
+    grid-area: 1 / 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 112px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    font: inherit;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
-.grow-wrap > textarea,
+
 .grow-wrap::after {
-  color: #000;
-  /* Identical styling required!! */
-  border: 3px solid white;
-  border-radius: 3px;
-  padding: 0.5rem;
-  font: inherit;
-
-  /* Place on top of each other */
-  grid-area: 1 / 1 / 2 / 2;
+    content: attr(data-replicated-value) " ";
+    visibility: hidden;
+    pointer-events: none;
 }
 
-.grow-wrap > textarea::placeholder {
-  color: #444;
+.grow-wrap > textarea {
+    position: relative;
+    resize: none;
+    overflow: hidden;
+    border-color: var(--border);
 }
 
-label {
-  display: block;
+.field-footer {
+    text-align: right;
 }
 
-form {
-  width: 50%;
+.character-count,
+.settings {
+    color: var(--muted);
+    font-size: 0.8125rem;
 }
 
-.pageEnd {
-  margin-top: 50px;
-  margin-bottom: 50px;
+.character-count {
+    font-variant-numeric: tabular-nums;
 }
 
-#name {
-  font-size: 120%;
+.character-count.near-limit,
+.character-count.at-limit {
+    color: var(--text);
 }
 
-#mainText {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.character-count.at-limit {
+    font-weight: 700;
 }
 
-/* id description shouldnt be wider than 600 pixels */
-#description {
-  max-width: 600px;
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 8px 16px;
+    color: #181818;
+    background: #d4d4d4;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    font-weight: 650;
+    cursor: pointer;
 }
 
-/* cool orange gradient background */
-body {
-  background: #333;
-  margin: 0;
-  color: #ffffff; /* Set text color to white or a contrasting color */
+.button:hover:not(:disabled) {
+    background: #ededed;
 }
 
+.button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
 
-/* for mobile devices */
+.status {
+    margin: 0;
+    font-size: 0.875rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
 
-@media only screen and (max-width: 600px) {
-  img {
-    width: 90%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .content {
-    width: 72%;
-  }
-  .button {
-    font-size: 30px;
-  }
-  .grow-wrap {
-    width: 100%;
-  }
-  form {
-    width: 100%;
-  }
-  /* make link float to left part of the div */
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .pudimLogo {
-    margin-left: 30px;
-    margin-right: 0px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .headerLink {
+.status:empty {
     display: none;
-  }
-  #pfp {
-    width: 48%;
-  }
+}
+
+.status.pending {
+    color: var(--muted);
+}
+
+.status.error {
+    font-weight: 650;
+}
+
+.settings {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #3e3e3e;
+}
+
+.settings summary {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.settings summary:hover {
+    color: var(--text);
+}
+
+.settings-content {
+    padding-top: 12px;
+}
+
+.settings-content p {
+    margin: 8px 0 0;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.toggle input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--focus);
+    cursor: pointer;
+}
+
+kbd {
+    display: inline-block;
+    padding: 1px 4px;
+    color: var(--text);
+    background: var(--field);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font: inherit;
+}
+
+@media (max-width: 550px) {
+    .page {
+        align-items: start;
+        padding: 16px 12px;
+    }
+
+    .mailer {
+        padding: 20px 16px;
+    }
 }

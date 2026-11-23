@@ -1,67 +1,134 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="other.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Renner Mailer!</title>
-    </head>
-    <body>
-		<div class="box">
-			<div class="content">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-				<br class="spacerBig"/>
+    <meta
+        name="theme-color"
+        content="#121414"
+    >
 
-				<div class="center">
-					<h2 id="title" style="font-size: 240%;">Renner Mailer!</h2>
-				</div>
+    <meta
+        name="description"
+        content="Want to send Renner a message? Drop it here!"
+    >
 
-				<br class="spacerBig"/>
+    <title>Renner Mailer!</title>
 
-				<div class="center">
-					<img src="pfp.jpg" alt="Renn!" id="pfp" style="margin:0px; border-radius: 50%;">
-				</div>
+    <link rel="stylesheet" href="other.css">
+    <script src="main.js" defer></script>
+</head>
 
-				<br class="spacerBig"/>
+<body>
+    <main class="page">
+        <section class="mailer" aria-labelledby="title">
 
-				<div class="center" id="mainText">
-					<p id="text" style="font-size: 150%; margin-bottom: 0px;">Want to send me a message? Send it here!</p>
-					<p id="text" style="font-size: 150%;">I swear it is anonymous ;)</p>
-				</div>
+            <div class="profile">
+                <img
+                    src="pfp.jpg"
+                    alt="Renner's profile picture"
+                    id="pfp"
+                    width="114"
+                    height="114"
+                >
+            </div>
 
-				<br class="spacerBig"/>
+            <div class="intro">
 
-				<form>
-					<div class="center">
-						<input type="text" id="name" name="name" placeholder="Who is this? (Optional)">
-					</div>
-					<br />
-					<div class="grow-wrap">
-						<textarea name="text" id="text" onInput="this.parentNode.dataset.replicatedValue = this.value" placeholder="What do you want to say?"></textarea>
-					</div>
-				</form>
+                <h1 id="title">
+                    Want to send me a message? Send it here!
+                </h1>
 
-				<p class="status">⠀</p>
-				<br />
+                <p class="privacy-note">
+                    I swear it's anonymous ;D
+                </p>
+            </div>
 
-				<button class="button" onclick="sendMail()">Send!</button>
+            <form id="messageForm">
+                <div class="field">
+                    <label for="name">
+                        Your name
+                        <span class="optional">(optional)</span>
+                    </label>
 
-				<br class="spacerBig"/>
-				<br class="spacerBig"/>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Who is this?"
+                        maxlength="50"
+                        autocomplete="nickname"
+                    >
+                </div>
 
-				<p style="font-size: 140%; display:none">----------------------------------------------------------</p>
+                <div class="field">
+                    <label for="message">
+                        Your message
+                    </label>
 
-				<div class="center" style="display: none;">
-					<input type="checkbox" id="expertMode" name="expertMode" value="expertMode" onclick="expertMode()">
-					<label for="expertMode">Expert Mode</label>
-				</div>
+                    <div class="grow-wrap">
+                        <textarea
+                            name="text"
+                            id="message"
+                            rows="4"
+                            maxlength="1000"
+                            placeholder="What's on your mind?"
+                            required
+                        ></textarea>
+                    </div>
 
-				<p style="font-size: 106%; display: none;" id="description">In expert mode, you use ctrl+enter to create a new line, and enter to send the message! If you are MaxCG, you will probably like this!</p>
+                    <div class="field-footer">
+                        <span
+                            class="character-count"
+                            id="characterCount"
+                            aria-live="polite"
+                        >0 / 1000</span>
+                    </div>
+                </div>
 
-			</div>
-		</div>
+                <button
+                    class="button"
+                    id="sendButton"
+                    type="submit"
+                >
+                    <span id="buttonText">Send message</span>
 
-		<br class="pageEnd" />
-    </body>
-	<script src="main.js"></script>
+                    <span class="button-arrow" aria-hidden="true">
+                        ↗
+                    </span>
+                </button>
+
+                <p
+                    class="status"
+                    id="status"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                ></p>
+            </form>
+
+            <details class="settings">
+                <summary>Keyboard shortcuts</summary>
+
+                <div class="settings-content">
+                    <label class="toggle">
+                        <input
+                            type="checkbox"
+                            id="expertMode"
+                            name="expertMode"
+                        >
+
+                        <span>Expert mode</span>
+                    </label>
+
+                    <p id="shortcutDescription">
+                        <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+                        to send your message.
+                    </p>
+                </div>
+            </details>
+        </section>
+    </main>
+</body>
 </html>
