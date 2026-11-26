@@ -1,6 +1,7 @@
 REGISTRY ?= registry.pudim.xyz
 TAG ?= main
 PLATFORM ?= linux/amd64
+KUBECTL ?= kubectl
 IMAGE ?= $(REGISTRY)/lerenner/pudim-main-website:$(TAG)
 
 export COMMIT_MESSAGE := $(value MESSAGE)
@@ -22,3 +23,9 @@ send: push
 		fi; \
 	fi
 	git push
+	@$(KUBECTL) -n pudimnetes get deployment pudim-website-deployment \
+		-o 'jsonpath={range .spec.template.spec.containers[*]}{.image}{" "}{.imagePullPolicy}{"\n"}{end}' | \
+		grep -Fxq -- "$(IMAGE) Always" || { \
+			echo "Expected pudim-website-deployment to use $(IMAGE) with imagePullPolicy Always." >&2; exit 1; \
+		}
+	$(KUBECTL) -n pudimnetes delete pods --selector=app=pudim-website
