@@ -1,4 +1,4 @@
-REGISTRY ?= registry.pudim.xyz
+REGISTRY ?= registry.internal.pudim.xyz
 TAG ?= main
 PLATFORM ?= linux/amd64
 KUBECTL ?= kubectl
